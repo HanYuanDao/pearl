@@ -264,11 +264,12 @@ public class MakeExcelHandler extends Handler{
             }
         }
 
-        //自适应列宽
+        /*//自适应列宽 这可能会导致一个关于列宽的异常：The maximum column width for an individual cell is 255 characters.
         for (int i = 0; i < titleLength; i++) {
             sheetResult.autoSizeColumn(i);
-            sheetResult.setColumnWidth(i,sheetResult.getColumnWidth(i)*17/10);
-        }
+            sheetResult.setColumnWidth(i,sheetResult.getColumnWidth(i)<<1);
+            //sheet.setColumnWidth(i, “列名”.getBytes().length*2*256);
+        }*/
 
         return sheetResult;
     }
