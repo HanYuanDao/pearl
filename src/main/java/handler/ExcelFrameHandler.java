@@ -67,6 +67,7 @@ public class ExcelFrameHandler extends Handler {
                 Sheet sheet = workbook.getSheetAt(i);
 
                 String prodExcelNm = sheet.getSheetName();
+                int excelSheetUndefindVernier = 0;
                 MakeExcelEvent makeExcelEvent =
                         new MakeExcelEvent(
                                 "",
@@ -79,8 +80,24 @@ public class ExcelFrameHandler extends Handler {
                 List<String> prodExcelSheetNmList = new ArrayList<>();
                 List<String> prodExcelSqlList = new ArrayList<>();
                 for (Row rowStep : sheet) {
-                    String sheetNm = rowStep.getCell(excelFrameEvent.getCellNumSheetNm()).getStringCellValue();
-                    String sql = rowStep.getCell(excelFrameEvent.getCellNumSQL()).getStringCellValue();
+                    String sheetNm = "";
+                    String sql = "";
+                    if (null == rowStep) {
+                        makeExcelEvent.addSheet("undefind-"+(excelSheetUndefindVernier++), null);
+                        continue;
+                    }
+                    try {
+                        sheetNm = rowStep.getCell(excelFrameEvent.getCellNumSheetNm()).getStringCellValue();
+                    } catch (Exception e) {
+                        putLogInfo(event, "this cell is null.");
+                    }
+                    try {
+                        sql = rowStep.getCell(excelFrameEvent.getCellNumSQL()).getStringCellValue();
+                    } catch (Exception e) {
+                        putLogInfo(event, "this cell is null.");
+                    }
+
+
                     prodExcelSheetNmList.add(sheetNm==null ? "":sheetNm);
                     prodExcelSqlList.add(sql == null ? "":sql);
 
@@ -89,6 +106,7 @@ public class ExcelFrameHandler extends Handler {
                                 .setSql(sql).setSheetNm(sheetNm);
                         Main.eventQueue.insertEvent(executeSQLEvent);
                     } else {
+                        makeExcelEvent.addSheet("undefind-"+(excelSheetUndefindVernier++), null);
                         putLogError(event, "make executeSQLEvent is fail."+"prodExcelNm:"+prodExcelNm+","+"sheetNm:"+sheetNm+","+"sql:"+sql);
                     }
                 }
@@ -102,7 +120,6 @@ public class ExcelFrameHandler extends Handler {
 
     @Override
     protected int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        System.out.println(Main.eventQueue);
         return 0;
     }
 

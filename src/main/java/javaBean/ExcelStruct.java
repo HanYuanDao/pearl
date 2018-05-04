@@ -9,7 +9,7 @@ import java.util.HashMap;
  * Desciption:
  * Author: JasonHan.
  * Creation time: 2017/04/26 18:47:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class ExcelStruct extends FileStruct{
 

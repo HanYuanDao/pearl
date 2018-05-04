@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * Desciption: The thread pool is used to store the handler of the event to be processed.
  * Author: JasonHan.
  * Creation time: 2017/03/31 15:05:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class EventThreadPool extends ThreadPoolExecutor{
 

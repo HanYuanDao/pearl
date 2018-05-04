@@ -155,7 +155,6 @@ public class InitHandler extends Handler {
 //        Set keys = props.keySet();
 //        for (Interator it = keys.iterator(); it.hasNext();){
 //            String k = it.next();
-//            System.out.println(k + ":" + props.getProperty(k));
 //        }
 
         return propertiesKeyValuePair;

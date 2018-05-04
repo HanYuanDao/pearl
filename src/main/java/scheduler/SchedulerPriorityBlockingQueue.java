@@ -6,7 +6,7 @@ import java.util.concurrent.PriorityBlockingQueue;
  * Desciption: This is event queue.
  * Author: JasonHan.
  * Creation time: 2017/03/28 11:21:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class SchedulerPriorityBlockingQueue<Event> extends PriorityBlockingQueue<Event> {
 

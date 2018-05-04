@@ -14,7 +14,7 @@ import java.util.*;
  * Desciption:
  * Author: JasonHan.
  * Creation time: 2017/03/28 16:19:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class MakeExcelHandler extends Handler{
 
@@ -263,6 +263,13 @@ public class MakeExcelHandler extends Handler{
                 cell.setCellValue(data.get(i).get(j) == null ? "" : data.get(i).get(j));
             }
         }
+
+        //自适应列宽
+        for (int i = 0; i < titleLength; i++) {
+            sheetResult.autoSizeColumn(i);
+            sheetResult.setColumnWidth(i,sheetResult.getColumnWidth(i)*17/10);
+        }
+
         return sheetResult;
     }
 

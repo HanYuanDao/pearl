@@ -9,7 +9,7 @@ import java.util.Properties;
  * Desciption:
  * Author: JasonHan.
  * Creation time: 2017/04/11 16:26:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class DBSingleInstanceMySQL {
     private static Connection connection = null;

@@ -11,7 +11,7 @@ import java.net.URLConnection;
  * Desciption:
  * Author: JasonHan.
  * Creation time: 2017/03/27 17:19:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public class HttpClient {
 

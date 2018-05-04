@@ -16,7 +16,7 @@ import java.util.List;
  *             果或处理该事件所得结果的事件）。
  * Author: JasonHan.
  * Creation time: 2017/03/28 11:12:00.
- * © Copyright 2013-2017, Banksteel Finance.
+ * © Copyright 2013-2018, Banksteel Finance.
  */
 public abstract class Event implements Comparable<Event>, Runnable {
     private static Logger logger = Logger.getLogger(Event.class);
