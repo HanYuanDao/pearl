@@ -115,16 +115,6 @@ public class InitHandler extends Handler {
         return 0;
     }
 
-    @Override
-    protected int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
-    @Override
-    protected int dealEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
     private boolean checkValue(Object source) {
         if (null == source) {
             return false;

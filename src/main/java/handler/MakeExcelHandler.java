@@ -50,16 +50,6 @@ public class MakeExcelHandler extends Handler{
         return 0;
     }
 
-    @Override
-    protected int dealEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
-    @Override
-    protected int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
     public static String cutOutString(String source, String startStr, String endStr) {
         if (null != source) {
             int startIndex = 0;

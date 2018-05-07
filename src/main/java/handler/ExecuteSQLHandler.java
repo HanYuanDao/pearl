@@ -55,16 +55,6 @@ public class ExecuteSQLHandler extends Handler {
         return 0;
     }
 
-    @Override
-    protected int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
-    @Override
-    protected int dealEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
     private static List<List<String>> resultSet2List(ResultSet resultSet) throws SQLException {
         List<List<String>> result = new ArrayList<>();
         if (null == resultSet) {

@@ -118,16 +118,6 @@ public class ExcelFrameHandler extends Handler {
         return 0;
     }
 
-    @Override
-    protected int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
-    @Override
-    protected int dealEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj) {
-        return 0;
-    }
-
     public Workbook loadExcel(String nmFile) throws IOException, EventQueueException {
         String[] filePathArr = nmFile.split("[.]");
         if (filePathArr.length < 2) {

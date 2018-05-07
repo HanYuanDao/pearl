@@ -24,10 +24,6 @@ public abstract class Handler {
      */
     public abstract int handle(Event event);
 
-    protected abstract int createEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj);
-
-    protected abstract int dealEvent(SchedulerPriorityBlockingQueue eventQueue, Object obj);
-
     protected void putLogInfo(Event event, String msg) {
         logger.info(LOGGER_HEAD + event.getName() +
                 System.getProperty("line.separator") +
