@@ -16,6 +16,8 @@ public class StringHelper {
     /** 中文超大字符集 */
     public static final String GBK = "GBK";
 
+    private StringHelper() {}
+
     public static String toGBK(String source) throws UnsupportedEncodingException {
         return changeCharset(source, GBK);
     }
