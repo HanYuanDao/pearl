@@ -44,6 +44,7 @@ public abstract class Event implements Comparable<Event>, Runnable {
     private String name;
     /**
      * The priority of the event
+     * TODO 此优先级表示在线程池中执行时的优先级，是否需要还应该被讨论
      */
     private int priority;
     /**
