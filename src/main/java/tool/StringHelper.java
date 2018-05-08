@@ -39,4 +39,37 @@ public class StringHelper {
         }
         return null;
     }
+
+    /**
+     * 截取一段字符中已{@code startStr}开头以{@code endStr}结尾的字符串，不包含开头结尾。
+     *
+     * @param source     被截取的代码
+     * @param startStr   截取位置的起始字符串
+     * @param endStr     截取位置的终止字符串
+     *
+     * @author: jasonhan.
+     * @creation time: 2018/05/08 17:25:37.
+     */
+    public static String cutOutString(String source, String startStr, String endStr) {
+        if (null != source) {
+            int startIndex = 0;
+            int endIndex = source.length();
+
+            if (null != startStr) {
+                startIndex = source.indexOf(startStr);
+                startIndex = startIndex>=0?(startIndex+startStr.length()):0;
+            }
+            if (null != endStr) {
+//                endIndex = source.indexOf(endStr);
+                endIndex = source.indexOf(endStr, startIndex);
+                endIndex = endIndex>=0?(endIndex):startIndex;
+            }
+
+            if (startIndex <= endIndex) {
+                return source.subSequence(startIndex, endIndex).toString();
+            }
+        }
+        return "";
+    }
+
 }
