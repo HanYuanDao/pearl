@@ -18,4 +18,9 @@ public class EventQueueException extends Exception{
     public String getExcMsg() {
         return excMsg;
     }
+
+    @Override
+    public String toString() {
+        return "excCode:" + excCode + "excMsg:" + excMsg + ".";
+    }
 }
