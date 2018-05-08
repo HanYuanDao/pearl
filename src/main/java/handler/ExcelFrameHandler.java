@@ -78,8 +78,6 @@ public class ExcelFrameHandler extends Handler {
                         ).setFileName(prodExcelNm)
                          .setFilePath(System.getProperty("user.dir"))
                          .setTotalNumSheet(sheet.getLastRowNum() + 1);
-                List<String> prodExcelSheetNmList = new ArrayList<>();
-                List<String> prodExcelSqlList = new ArrayList<>();
                 for (Row rowStep : sheet) {
                     String sheetNm = "";
                     String sql = "";
@@ -97,10 +95,6 @@ public class ExcelFrameHandler extends Handler {
                     } catch (Exception e) {
                         putLogInfo(event, "this cell is null.");
                     }
-
-
-                    prodExcelSheetNmList.add(sheetNm==null ? "":sheetNm);
-                    prodExcelSqlList.add(sql == null ? "":sql);
 
                     if (StringUtils.isNotEmpty(sheetNm) && StringUtils.isNotEmpty(sql)) {
                         ExecuteSQLEvent executeSQLEvent = new ExecuteSQLEvent("", new Date(), ExecuteSQLHandler.getInstance(), Main.eventQueue, makeExcelEvent)
