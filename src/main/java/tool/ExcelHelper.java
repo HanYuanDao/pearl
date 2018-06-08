@@ -79,7 +79,9 @@ public class ExcelHelper {
 
             int column = 0;
             for (Cell cellStep : rowStep) {
-                switch (cellStep.getCellType()) {
+                cellStep.setCellType(cellStep.CELL_TYPE_STRING);
+                step.put(String.valueOf(column++), cellStep.getStringCellValue());
+                /*switch (cellStep.getCellType()) {
                     case HSSFCell.CELL_TYPE_BLANK:
                         step.put(String.valueOf(column++), "");
                         break;
@@ -100,7 +102,7 @@ public class ExcelHelper {
                         break;
                     default:
                         break;
-                }
+                }*/
             }
             result.add(step);
         }
