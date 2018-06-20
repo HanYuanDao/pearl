@@ -157,6 +157,10 @@ public abstract class Event implements Comparable<Event>, Runnable {
                 msg);
     }
 
+    /**
+     * Printing all value of properties.
+     * @return
+     */
     @Override
     public String toString() {
         String eventNm = this.getClass().getName();
