@@ -126,20 +126,6 @@ public abstract class Event implements Comparable<Event>, Runnable {
         }
     }
 
-    /**
-     * 为创造一个有序的事件队列而编写的排序原则，实现Comparable接口重
-     * 写compareTo方法。目前的逻辑是：事件执行事件越靠前则优先级越高。
-     *
-     * @param event
-     * @return
-     */
-    public int compareTo(Event event) {
-        //TODO 除了事件的执行事件还应该将事件的优先级考虑进来
-        return (this.getDoTime().getTime() > event.getDoTime().getTime()) ?
-                1 : (this.getDoTime().getTime()==event.getDoTime().getTime()) ?
-                0 : -1;
-    }
-
     protected void putLogInfo(Event event, String msg) {
         logger.info(LOGGER_HEAD +
                 event.getName() +
@@ -171,6 +157,7 @@ public abstract class Event implements Comparable<Event>, Runnable {
                 msg);
     }
 
+    @Override
     public String toString() {
         String eventNm = this.getClass().getName();
         Field[] f = this.getClass().getDeclaredFields();
@@ -184,5 +171,20 @@ public abstract class Event implements Comparable<Event>, Runnable {
             }
         }
         return eventNm + "{" + StringUtils.join(eventPropList.toArray(), ",") + "}";
+    }
+
+    /**
+     * 为创造一个有序的事件队列而编写的排序原则，实现Comparable接口重
+     * 写compareTo方法。目前的逻辑是：事件执行事件越靠前则优先级越高。
+     *
+     * @param event
+     * @return
+     */
+    @Override
+    public int compareTo(Event event) {
+        //TODO 除了事件的执行事件还应该将事件的优先级考虑进来
+        return (this.getDoTime().getTime() > event.getDoTime().getTime()) ?
+                1 : (this.getDoTime().getTime()==event.getDoTime().getTime()) ?
+                0 : -1;
     }
 }
